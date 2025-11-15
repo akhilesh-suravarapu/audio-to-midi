@@ -70,10 +70,10 @@ td {
 
 </style>
 <ul>
-  <li><a href="http://127.0.0.1:5000/">Home</a></li>
-  <li><a href="http://127.0.0.1:5000/database">Database</a></li>
+  <li><a href="/">Home</a></li>
+  <li><a href="/database">Database</a></li>
   <li><a href="https://github.com/akhilesh-suravarapu/audio-to-midi" target="blank">Github</a></li>
-  <li><a href="http://127.0.0.1:5000/about">About</a></li>
+  <li><a href="/about">About</a></li>
 </ul>
 <body>
   <div>This URL has already been downloaded before.</div>
@@ -105,7 +105,7 @@ td {
       </td>
       <td>{{ file.artist }}</td>
       <td><a href="https://youtube.com/watch?v={{ file.url }}">{{file.url}}</a></td>
-      <td><a href="http://127.0.0.1:5000/download/{{ file.id }}">Download</a></td>
+      <td><a href="/download/{{ file.id }}">Download</a></td>
     </tr>
     {% endfor %}
   </tbody>
