@@ -24,7 +24,7 @@ def FFT(x):
     return np.concatenate([evens + factor[:N//2]*odds, evens + factor[N//2:]*odds])
 
 def give_freqs(sr, signal):
-    n = 2**int(np.log2(signal))
+    n = 2**int(np.log2(len(signal)))
     signal = signal[:n]
 
     fft = abs(FFT(signal))
