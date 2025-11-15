@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio to MIDI</title>
+    <style>
+
+    .flash {
+        background: #ffdddd;
+        border-left: 5px solid #f44336;
+        padding: 10px;
+        margin: 10px 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .center {
+      margin: auto;
+      width: 50%;
+      padding: 10px;
+    }
+
+    p {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 10;
+    }
+
+    div {
+      left: 50%;
+      background-color: rgb(229, 162, 255);
+      width: 300px;
+      border: 15px solid rgb(192, 31, 255);
+      padding: 50px;
+      margin: 20px;
+    }
+
+    h2, p {
+      margin: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333333;
+    }
+
+    ul li {
+      float: left;
+    }
+
+    ul li a {
+      font-family: Arial, sans-serif;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 60px;
+      text-decoration: none;
+    }
+
+    ul li a:hover {
+      background-color: #111111;
+    }
+
+    .ok{        
+      font-size: 20px;
+    }
+    .op{
+      font-size: 20px;
+      font-weight: bold;
+      background-color: yellow;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+<ul>
+  <li><a href="http://127.0.0.1:5000/">Home</a></li>
+  <li><a href="http://127.0.0.1:5000/database">Database</a></li>
+  <li><a href="https://github.com/akhilesh-suravarapu/audio-to-midi" target="blank">Github</a></li>
+  <li><a href="http://127.0.0.1:5000/about">About</a></li>
+</ul>
+</style>
+
+</head>
+<body>
+  <h1>Convert audio into sheet music here</h1>
+  <div class="center">
+    
+    <form method="POST" action="/" enctype="multipart/form-data">
+      <!-- File upload -->
+       <p>Enter File</p>
+      <input class="ok" type="file" name="file"><br>
+
+      <!-- Dropdown -->
+       <p>Instrument</p>
+      <select name="instrument" id="instrument">
+        <option value="piano">Piano</option>
+        <option value="flute">Flute</option>
+      </select><br>
+
+      <!-- Confidence slider -->
+      <p>Confidence</p>
+      <input type="range" name="conf" min="1" max="100" value="65" class="slider" id="conf"><br>
+  
+      <!-- Submit button -->
+      <button class="op" type="submit">Convert</button><br>
+    </form>
+  </div>
+  <div class="center">
+    <p>Or convert with a YouTube link:</p>
+    <form method="GET" action="/">
+      <input type="text" name="url">
+      <button class="op" type="submit">Convert</button><br>
+    </form>
+  </div>
+<!-- errors -->
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for msg in messages %}
+        <div1 class="flash">{{ msg }}</div1>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+</body>
+</html>

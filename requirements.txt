@@ -1,0 +1,8 @@
+Flask==3.1.2
+flask_sqlalchemy==3.1.1
+midiutil==1.2.1
+numpy==2.3.4
+scipy==1.16.3
+soundfile==0.13.1
+yt_dlp==2025.11.12
+gunicorn==22.0.0
